@@ -1,0 +1,17 @@
+<div class="shadow rounded p-5">
+  <%= simple_form_for(post, url: posts_path, html_input: { data: { controller: 'ocr' } }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :title %>
+      <%= f.input :body %>
+      <%= f.input :image_description %>
+      <%= f.input :image, as: :file, input_html: { class: 'my-5' } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn btn-sm-outline btn success' %>
+    </div>
+  <% end %>
+</div>
